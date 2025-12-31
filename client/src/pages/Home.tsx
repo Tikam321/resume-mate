@@ -75,60 +75,93 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-50/50 p-4 md:p-8">
-      <div className="max-w-7xl mx-auto space-y-8">
+    <div className="min-h-screen bg-white">
+      <div className="max-w-7xl mx-auto px-4 md:px-8">
         
         {/* Header */}
-        <header className="flex items-center justify-between py-6">
+        <header className="flex items-center justify-between py-4 px-6 bg-white/80 backdrop-blur-md sticky top-0 z-50 border-b border-slate-100">
           <div className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center text-white shadow-lg shadow-primary/20">
-              <Briefcase className="w-6 h-6" />
+            <div className="w-8 h-8 bg-blue-900 rounded-lg flex items-center justify-center text-white shadow-md">
+              <FileText className="w-5 h-5" />
             </div>
-            <span className="text-xl font-bold tracking-tight">ResumeMatch</span>
+            <span className="text-xl font-bold tracking-tight text-blue-900">Resume Mate</span>
           </div>
-          <Button variant="ghost" className="font-medium" onClick={() => document.getElementById('demo')?.scrollIntoView({ behavior: 'smooth' })}>
-            Try Demo
+          <nav className="hidden md:flex items-center gap-8">
+            {['Demo', 'How It Works', 'Success Stories', 'Pricing', 'FAQ'].map((item) => (
+              <a key={item} href={`#${item.toLowerCase().replace(/\s+/g, '-')}`} className="text-sm font-medium text-slate-600 hover:text-primary transition-colors">
+                {item}
+              </a>
+            ))}
+          </nav>
+          <Button className="bg-[#56B381] hover:bg-[#4aa574] text-white font-bold px-6 rounded-lg shadow-sm">
+            Analyze My Resume Free
           </Button>
         </header>
 
         <div className="space-y-16">
           
           {/* Hero Section */}
-          <section className="text-center space-y-6 py-12">
+          <section className="relative text-center space-y-8 py-20 px-6 rounded-[2rem] overflow-hidden bg-gradient-to-br from-[#2B458C] via-[#3D69C4] to-[#4EA9B3] text-white">
+            <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10 pointer-events-none"></div>
+            
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 bg-white/10 backdrop-blur-md rounded-full border border-white/20 shadow-xl">
+              <span className="text-amber-400">✦</span>
+              <span className="text-sm font-semibold tracking-wide">Trusted by 50,000+ Job Seekers</span>
+            </div>
+
             <motion.h2 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-6xl font-black tracking-tight text-slate-900"
+              className="text-5xl md:text-7xl font-bold tracking-tight leading-[1.1]"
             >
-              Transform Your Resume <br/>
-              <span className="text-primary italic">Into Job Offers</span>
+              Get Your Dream Job 3X Faster
             </motion.h2>
+
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.1 }}
-              className="text-xl text-slate-600 max-w-2xl mx-auto"
+              className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto font-medium"
             >
-              Our AI analyzes your CV against any job description to give you the exact keywords and improvements you need to land the interview.
+              AI analyzes your resume in 60 seconds and writes the perfect cold email to reach hiring managers directly.
             </motion.p>
+
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2 }}
-              className="flex flex-wrap justify-center gap-4 pt-4"
+              className="flex flex-wrap justify-center gap-6 pt-6"
             >
-              <div className="flex -space-x-2">
-                {[1,2,3,4].map(i => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white bg-slate-200 flex items-center justify-center text-xs font-bold text-slate-600">
-                    {String.fromCharCode(64 + i)}
-                  </div>
-                ))}
-              </div>
-              <div className="text-left">
-                <p className="text-sm font-bold text-slate-900">2,847+ Success Stories</p>
-                <p className="text-xs text-slate-500 italic">"I got 3 interviews in one week!"</p>
-              </div>
+              <Button size="lg" className="bg-[#56B381] hover:bg-[#4aa574] text-white font-bold h-16 px-10 text-lg rounded-xl shadow-2xl shadow-[#56B381]/20 group">
+                <Upload className="mr-2 h-5 w-5 group-hover:-translate-y-1 transition-transform" />
+                Upload Resume for Free Analysis
+              </Button>
+              <Button size="lg" variant="outline" className="bg-white text-blue-900 border-0 h-16 px-10 text-lg font-bold rounded-xl shadow-2xl shadow-black/10 hover:bg-slate-50 transition-all">
+                <div className="w-0 h-0 border-t-[8px] border-t-transparent border-l-[12px] border-l-blue-900 border-b-[8px] border-b-transparent mr-3" />
+                Watch 2-Minute Demo
+              </Button>
             </motion.div>
+
+            <div className="flex flex-wrap justify-center gap-8 pt-10 text-sm font-semibold text-white/80">
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                  <span className="text-[10px]">✓</span>
+                </div>
+                No Credit Card Required
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                  <span className="text-[10px]">🛡</span>
+                </div>
+                100% Privacy Guaranteed
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center">
+                  <span className="text-[10px]">⏰</span>
+                </div>
+                Results in 60 Seconds
+              </div>
+            </div>
           </section>
 
           {/* Interactive Demo Section */}
@@ -353,28 +386,67 @@ export default function Home() {
               )}
             </AnimatePresence>
           </section>
-          {/* Feature Showcase */}
-          <section className="grid md:grid-cols-3 gap-8 py-8">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
-                <CheckCircle2 className="w-6 h-6 text-blue-600" />
+          {/* Stats Section */}
+          <section className="grid grid-cols-2 md:grid-cols-4 gap-8 py-12 border-b border-slate-100">
+            {[
+              { label: "Job Seekers Helped", value: "50,000+", icon: "👥" },
+              { label: "Get More Interviews", value: "87%", icon: "📈" },
+              { label: "Faster Job Placement", value: "3X", icon: "⚡" },
+              { label: "Average Rating", value: "4.9/5", icon: "⭐" }
+            ].map((stat, i) => (
+              <div key={i} className="text-center space-y-2">
+                <div className="text-2xl">{stat.icon}</div>
+                <div className="text-3xl font-bold text-blue-900">{stat.value}</div>
+                <div className="text-sm text-slate-500 font-medium">{stat.label}</div>
               </div>
-              <h4 className="text-lg font-bold mb-2">ATS Compatibility</h4>
-              <p className="text-slate-600 text-sm">Our AI checks your resume against standard applicant tracking systems to ensure you pass the first filter.</p>
+            ))}
+          </section>
+
+          {/* Problem Section */}
+          <section className="py-20 text-center space-y-12">
+            <div className="space-y-4">
+              <h3 className="text-4xl font-bold text-blue-900 tracking-tight">The Resume Black Hole Problem</h3>
+              <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                Your resume is getting lost in automated systems, and you're missing opportunities you're qualified for.
+              </p>
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-indigo-50 rounded-xl flex items-center justify-center mb-4">
-                <Lightbulb className="w-6 h-6 text-indigo-600" />
-              </div>
-              <h4 className="text-lg font-bold mb-2">Keyword Optimization</h4>
-              <p className="text-slate-600 text-sm">Instantly identify missing keywords from the job description and learn how to naturally integrate them.</p>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { label: "of resumes never reach human eyes", value: "73%", icon: "👁️" },
+                { label: "applications per job posting", value: "250+", icon: "📄" },
+                { label: "average time recruiters spend per resume", value: "6 sec", icon: "⏱️" }
+              ].map((item, i) => (
+                <Card key={i} className="p-8 border-0 shadow-sm bg-white ring-1 ring-slate-100">
+                  <div className="text-3xl mb-4">{item.icon}</div>
+                  <div className="text-4xl font-bold text-blue-900 mb-2">{item.value}</div>
+                  <p className="text-sm text-slate-500 font-medium">{item.label}</p>
+                </Card>
+              ))}
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100 hover:shadow-md transition-shadow">
-              <div className="w-12 h-12 bg-purple-50 rounded-xl flex items-center justify-center mb-4">
-                <Copy className="w-6 h-6 text-purple-600" />
-              </div>
-              <h4 className="text-lg font-bold mb-2">Outreach Templates</h4>
-              <p className="text-slate-600 text-sm">Generate personalized cold emails for recruiters that highlight your specific matching strengths.</p>
+          </section>
+
+          {/* Testimonials Section */}
+          <section className="py-20 space-y-12">
+            <h3 className="text-3xl font-bold text-center text-blue-900">Real Stories from Frustrated Job Seekers</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              {[
+                { name: "Michael Chen", role: "Software Engineer", text: "I sent 200+ applications and heard nothing back. I felt invisible in the job market." },
+                { name: "Sarah Johnson", role: "Marketing Manager", text: "My resume looked great to me, but I had no idea it was being rejected by ATS systems." },
+                { name: "David Peterson", role: "Financial Analyst", text: "I wasted months applying to job boards with zero results. Everything needed to change." }
+              ].map((story, i) => (
+                <Card key={i} className="p-8 border-0 shadow-sm bg-slate-50 relative group hover:bg-white hover:ring-1 hover:ring-slate-200 transition-all">
+                  <p className="italic text-slate-600 mb-6 font-medium">"{story.text}"</p>
+                  <div className="flex items-center gap-4">
+                    <div className="w-12 h-12 rounded-full bg-slate-200 flex items-center justify-center font-bold text-slate-500">
+                      {story.name[0]}
+                    </div>
+                    <div>
+                      <p className="font-bold text-blue-900">{story.name}</p>
+                      <p className="text-sm text-slate-500">{story.role}</p>
+                    </div>
+                  </div>
+                </Card>
+              ))}
             </div>
           </section>
 
@@ -395,14 +467,54 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Footer */}
-          <footer className="border-t border-slate-200 pt-12 pb-8 text-center space-y-4">
-            <div className="flex justify-center gap-6 text-slate-400">
-              <span className="text-sm font-medium hover:text-primary cursor-pointer">Privacy Policy</span>
-              <span className="text-sm font-medium hover:text-primary cursor-pointer">Terms of Service</span>
-              <span className="text-sm font-medium hover:text-primary cursor-pointer">Support</span>
+          {/* Footer Section */}
+          <footer className="bg-blue-900 text-white py-20 mt-20 rounded-t-[3rem] px-8">
+            <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12">
+              <div className="col-span-2 space-y-6">
+                <div className="flex items-center gap-2">
+                  <div className="w-8 h-8 bg-white/20 rounded-lg flex items-center justify-center text-white">
+                    <FileText className="w-5 h-5" />
+                  </div>
+                  <span className="text-xl font-bold tracking-tight">Resume Mate</span>
+                </div>
+                <p className="text-blue-200 max-w-sm">
+                  Transform your job search with AI-powered resume optimization and personalized cold email templates.
+                </p>
+                <div className="flex gap-4">
+                  {[1, 2, 3, 4].map(i => (
+                    <div key={i} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 cursor-pointer">
+                      <span className="text-xs">🔗</span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <div>
+                <h5 className="font-bold mb-6">Product</h5>
+                <ul className="space-y-4 text-blue-200 text-sm">
+                  <li className="hover:text-white cursor-pointer">Features</li>
+                  <li className="hover:text-white cursor-pointer">Pricing</li>
+                  <li className="hover:text-white cursor-pointer">Success Stories</li>
+                  <li className="hover:text-white cursor-pointer">FAQ</li>
+                </ul>
+              </div>
+              <div>
+                <h5 className="font-bold mb-6">Support</h5>
+                <ul className="space-y-4 text-blue-200 text-sm">
+                  <li className="hover:text-white cursor-pointer">Help Center</li>
+                  <li className="hover:text-white cursor-pointer">Contact Us</li>
+                  <li className="hover:text-white cursor-pointer">Privacy Policy</li>
+                  <li className="hover:text-white cursor-pointer">Terms of Service</li>
+                </ul>
+              </div>
             </div>
-            <p className="text-sm text-slate-400">© 2025 ResumeMatch. Helping you land your dream job faster.</p>
+            <div className="max-w-7xl mx-auto border-t border-white/10 mt-20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-blue-300 text-xs">
+              <p>© 2025 Resume Mate. All rights reserved.</p>
+              <div className="flex gap-6">
+                <span className="hover:text-white cursor-pointer">Privacy Policy</span>
+                <span className="hover:text-white cursor-pointer">Terms of Service</span>
+                <span className="hover:text-white cursor-pointer">Cookie Policy</span>
+              </div>
+            </div>
           </footer>
         </div>
       </div>
