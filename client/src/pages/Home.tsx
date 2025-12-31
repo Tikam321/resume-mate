@@ -91,10 +91,10 @@ export default function Home() {
           </p>
         </header>
 
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
+        <div className="space-y-8">
           
           {/* Input Section */}
-          <section className="w-full lg:w-1/2 lg:sticky lg:top-8 space-y-6">
+          <section className="w-full">
             <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden">
               <div className="h-1 w-full bg-gradient-to-r from-primary to-blue-400" />
               <CardHeader>
@@ -103,49 +103,52 @@ export default function Home() {
               </CardHeader>
               <CardContent className="space-y-6">
                 
-                {/* Resume Upload */}
-                <div className="space-y-3">
-                  <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
-                    Upload Resume (PDF)
-                  </label>
-                  <div className="relative group">
-                    <input
-                      type="file"
-                      accept=".pdf"
-                      onChange={handleFileChange}
-                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
-                    />
-                    <div className={cn(
-                      "flex flex-col items-center justify-center w-full h-32 border-2 border-dashed rounded-xl transition-all duration-200 group-hover:border-primary/50 group-hover:bg-primary/5",
-                      file ? "border-primary bg-primary/5" : "border-muted-foreground/25 bg-muted/5"
-                    )}>
-                      {file ? (
-                        <div className="flex items-center space-x-2 text-primary">
-                          <FileText className="w-8 h-8" />
-                          <span className="font-semibold">{file.name}</span>
-                        </div>
-                      ) : (
-                        <>
-                          <Upload className="w-8 h-8 text-muted-foreground mb-2 group-hover:text-primary transition-colors" />
-                          <p className="text-sm text-muted-foreground font-medium">Click to upload or drag & drop</p>
-                          <p className="text-xs text-muted-foreground/70">PDF files only</p>
-                        </>
-                      )}
+                {/* Resume and Job Description Stack */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Resume Upload */}
+                  <div className="space-y-3">
+                    <label className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                      Upload Resume (PDF)
+                    </label>
+                    <div className="relative group">
+                      <input
+                        type="file"
+                        accept=".pdf"
+                        onChange={handleFileChange}
+                        className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                      />
+                      <div className={cn(
+                        "flex flex-col items-center justify-center w-full h-48 border-2 border-dashed rounded-xl transition-all duration-200 group-hover:border-primary/50 group-hover:bg-primary/5",
+                        file ? "border-primary bg-primary/5" : "border-muted-foreground/25 bg-muted/5"
+                      )}>
+                        {file ? (
+                          <div className="flex flex-col items-center space-y-2 text-primary">
+                            <FileText className="w-12 h-12" />
+                            <span className="font-semibold text-center px-4 break-all">{file.name}</span>
+                          </div>
+                        ) : (
+                          <>
+                            <Upload className="w-10 h-10 text-muted-foreground mb-2 group-hover:text-primary transition-colors" />
+                            <p className="text-sm text-muted-foreground font-medium">Click to upload or drag & drop</p>
+                            <p className="text-xs text-muted-foreground/70">PDF files only</p>
+                          </>
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                {/* Job Description */}
-                <div className="space-y-3">
-                  <label className="text-sm font-medium leading-none">
-                    Job Description
-                  </label>
-                  <Textarea
-                    placeholder="Paste the full job description here..."
-                    className="min-h-[200px] resize-none text-base"
-                    value={jobDescription}
-                    onChange={(e) => setJobDescription(e.target.value)}
-                  />
+                  {/* Job Description */}
+                  <div className="space-y-3">
+                    <label className="text-sm font-medium leading-none">
+                      Job Description
+                    </label>
+                    <Textarea
+                      placeholder="Paste the full job description here..."
+                      className="h-48 resize-none text-base"
+                      value={jobDescription}
+                      onChange={(e) => setJobDescription(e.target.value)}
+                    />
+                  </div>
                 </div>
 
                 <Button 
@@ -177,7 +180,7 @@ export default function Home() {
           </section>
 
           {/* Results Section */}
-          <section className="w-full lg:w-1/2 space-y-6">
+          <section className="w-full space-y-8">
             <AnimatePresence mode="wait">
               {!result && !isPending && (
                 <motion.div

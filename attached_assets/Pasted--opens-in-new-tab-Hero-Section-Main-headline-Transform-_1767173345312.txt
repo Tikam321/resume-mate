@@ -1,0 +1,83 @@
+(opens in new tab)
+Hero Section
+Main headline: "Transform Your Resume Into Job Offers" with compelling subtext
+Value proposition: Clear explanation of CV analysis + job description matching
+Primary CTA button: "Analyze My Resume Now" (prominent placement)
+Trust indicators: User count, success rate statistics
+Hero visual: Professional mockup showing the resume analysis interface
+(opens in new tab)
+Interactive Demo Section
+Live preview area: Shows how the tool works without signup
+Drag-and-drop CV upload: Users can test file upload functionality
+Job description textarea: Sample JD pre-filled, users can paste their own
+"Analyze" button: Triggers demo analysis
+Results display: Shows sample match score (e.g., "78% Match") with breakdown
+Before/After slider: Visual comparison of resume improvements
+(opens in new tab)
+Key Features Showcase
+Three main feature blocks:
+
+Resume Match Scoring
+
+ATS compatibility analysis
+Keyword optimization suggestions
+Skills gap identification
+Smart Resume Enhancement
+
+AI-powered content suggestions
+Format optimization
+Industry-specific tailoring
+Cold Email Generation
+
+Recruiter outreach templates
+Personalized messaging
+Follow-up sequences
+(opens in new tab)
+Social Proof Section
+Success testimonials: 3-4 customer reviews with photos
+Company logos: Where users got hired
+Success metrics: "2,847 job offers generated this month"
+Case study highlights: Specific improvement examples
+(opens in new tab)
+ROI Calculator Widget
+Interactive inputs: Salary target, application frequency
+Real-time calculation: Shows potential earnings increase
+Comparison metrics: "Users see 3x more interviews"
+Time-to-hire improvement: "Get hired 40% faster"
+(opens in new tab)
+Pricing Tiers
+Three-tier structure:
+
+Basic Plan: Limited analyses per month
+Professional Plan: Unlimited + advanced features
+Enterprise Plan: Team features + API access
+Each tier shows:
+
+Monthly price
+Feature comparison
+"Most Popular" badge on middle tier
+Clear CTA buttons
+(opens in new tab)
+FAQ Section
+Common questions covered:
+
+How accurate is the matching algorithm?
+What file formats are supported?
+Is my data secure and private?
+How does the cold email generation work?
+Can I cancel anytime?
+(opens in new tab)
+Footer Elements
+Secondary CTAs: Alternative entry points
+Social media links: Professional platforms
+Legal pages: Privacy policy, terms of service
+Contact information: Support and sales
+Newsletter signup: Industry tips and updates
+(opens in new tab)
+Special Features
+Countdown timer: Limited-time pricing offer
+Exit-intent popup: Discount for leaving users
+Mobile responsive: Fully optimized for all devices
+Fast loading: Optimized images and code
+SEO optimized: Meta tags and structured data
+The page is designed to convert visitors through social proof, interactive demos, and clear value propositions, guiding them from awareness to signup seamlessly.
