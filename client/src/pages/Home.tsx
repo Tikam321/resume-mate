@@ -91,10 +91,10 @@ export default function Home() {
           </p>
         </header>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="flex flex-col lg:flex-row gap-8 items-start">
           
           {/* Input Section */}
-          <section className="space-y-6">
+          <section className="w-full lg:w-1/2 lg:sticky lg:top-8 space-y-6">
             <Card className="border-0 shadow-lg bg-white/80 backdrop-blur-sm overflow-hidden">
               <div className="h-1 w-full bg-gradient-to-r from-primary to-blue-400" />
               <CardHeader>
@@ -177,7 +177,7 @@ export default function Home() {
           </section>
 
           {/* Results Section */}
-          <section className="space-y-6">
+          <section className="w-full lg:w-1/2 space-y-6">
             <AnimatePresence mode="wait">
               {!result && !isPending && (
                 <motion.div
