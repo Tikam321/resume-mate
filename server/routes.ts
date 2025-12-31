@@ -42,16 +42,25 @@ export async function registerRoutes(
       // Parse PDF
       let resumeText = "";
       try {
+        console.log("Processing file buffer size:", req.file.buffer.length);
         const pdfData = await pdf(req.file.buffer);
         resumeText = pdfData.text;
-      } catch (e) {
-        return res.status(400).json({ message: "Failed to parse PDF file" });
+        console.log("Extracted text length:", resumeText.length);
+        
+        if (!resumeText || resumeText.trim().length < 5) {
+          throw new Error("Extracted text is too short or empty. The PDF might be image-based or protected.");
+        }
+      } catch (e: any) {
+        console.error("PDF parsing error detail:", e);
+        return res.status(400).json({ 
+          message: `Failed to parse PDF file: ${e.message || 'Unknown error'}. Please ensure it's a text-based (not scanned) PDF.` 
+        });
       }
 
       const jobDescription = req.body.job_description;
 
       // Call Gemini
-      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
+      const model = (genAI as any).getGenerativeModel({ model: "gemini-1.5-flash" });
 
       const prompt = `
         You are an expert ATS and Technical Recruiter.
